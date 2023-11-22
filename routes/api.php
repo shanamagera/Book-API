@@ -20,5 +20,6 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/createBook',[BooksController::class,'createBook']);
+// Route::post('/createBook',[BooksController::class,'createBook']);
 
+Route::post('/createBook', [BooksController::class, 'createNewBook']);

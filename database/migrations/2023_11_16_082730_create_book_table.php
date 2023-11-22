@@ -16,12 +16,16 @@ class CreateBookTable extends Migration
         Schema::create('books', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('author');
             $table -> integer('pages');
             $table -> string('IBN');
             $table -> string('category');
             $table -> string('publisher');
             $table -> integer('yearOfPublication');
+            $table -> unsignedBigInteger('user_id');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
