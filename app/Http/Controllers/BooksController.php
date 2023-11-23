@@ -8,6 +8,24 @@ use App\Models\Book;
 
 class BooksController extends Controller
 {
+    public function index(){
+        return view('Books');
+    }
+    public function store(Request $request){
+        $validateData= $request([
+            'name'=>'required',
+            'author'=>'required',
+            'pages'=>'required',
+            'IBN'=>'required',
+            'category'=>'required',
+            'publisher'=>'required',
+            'yearOfPublication'=>'required',
+            'user_id'=> 'required'
+        ]);
+
+    }
+
+
     //Create new Book
     function createNewBook(Request $request){
         // validate inputs---telling the user 'this should not be empty'
